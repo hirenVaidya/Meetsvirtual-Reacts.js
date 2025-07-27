@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #DC3545;
+    --secondary-color: #6c757d;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+    --white-color: #ffffff;
+    --text-color: #333;
+    --gradient-start: #FF6B6B;
+    --gradient-end: #E63946;
+
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header {
+    background: var(--dark-color);
+    color: var(--white-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+} */
+/* Header initial transparent and scrolled state */
+header {
+    background: transparent; /* Start with transparent background */
+    color: var(--white-color);
+    padding: 1rem 0;
+    position: fixed; /* Change to fixed to stay at top */
+    width: 100%; /* Ensure it spans full width */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+header.scrolled {
+    background: var(--dark-color); /* Dark red background on scroll */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Adjustments to hero section to prevent content from going under fixed header */
+.hero {
+    /* If header is fixed, add padding-top to body or main content to prevent overlap */
+    padding-top: 100px; /* Adjust this value based on your header's height */
+    /* ... rest of hero styles ... */
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.hero {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: var(--white-color);
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #C82333;
+    transform: translateY(-3px);
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-of-type(even) {
+    background-color: var(--light-color);
+}
+
+.section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.design-item {
+    background: var(--white-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.design-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.design-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.design-item-content {
+    padding: 25px;
+}
+
+.design-item-content h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.design-item-content p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.vr-section {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.vr-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.vr-section h2 {
+    color: var(--white-color);
+}
+
+.vr-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.vr-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.vr-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.vr-text {
+    flex: 2;
+    text-align: left;
+    max-width: 600px;
+}
+
+.vr-text p {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.cta-section {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--white-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+footer {
+    background: var(--dark-color);
+    color: var(--white-color);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .design-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vr-content {
+        flex-direction: column;
+    }
+
+    .vr-text {
+        text-align: center;
+    }
+    /* Contact Form Styles */
+.contact-section {
+    background-color: var(--light-color); /* Match background for contact section */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding: 30px;
+    background: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--light-color); /* Light red tint for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2); /* Primary red shadow on focus */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: auto; /* Override btn width if it was 100% */
+    display: block;
+    margin: 30px auto 0;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+}
+
+/* Media Queries for Contact Form */
+@media (max-width: 768px) {
+    .contact-form {
+        margin: 20px auto 0;
+        padding: 20px;
+    }
+}
+
+}
+/* Contact Form Styles */
+.contact-section {
+    background-color: var(--light-color); /* Match background for contact section */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding: 30px;
+    background: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: left; /* Keep text alignment to left for form labels */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex; /* Use flexbox for horizontal alignment */
+    flex-direction: column; /* Stack label and input by default */
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-color);
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--light-color); /* Light red tint for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2); /* Primary red shadow on focus */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: auto;
+    display: block;
+    margin: 30px auto 0;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+}
+
+/* --- Responsive adjustments for form alignment --- */
+@media (min-width: 600px) { /* Apply this for wider screens */
+    .form-group {
+        flex-direction: row; /* Align label and input in a row */
+        align-items: center; /* Vertically align items in the middle */
+    }
+
+    .form-group label {
+        width: 150px; /* Fixed width for labels */
+        text-align: right; /* Align labels to the right */
+        margin-right: 20px; /* Space between label and input */
+        margin-bottom: 0; /* Remove bottom margin when in row */
+    }
+
+    .form-group input,
+    .form-group textarea {
+        flex-grow: 1; /* Allow input/textarea to take remaining space */
+        width: auto; /* Reset width for flex-grow to work */
+    }
+}
+
+/* Keep existing media queries for contact form */
+@media (max-width: 768px) {
+    .contact-form {
+        margin: 20px auto 0;
+        padding: 20px;
+    }
+}
+/* Add these styles to the end of your src/index.css file */
+
+/* Ensure the phone input aligns with other form fields */
+.contact-form .form-group .phone-input-container {
+    width: 100%; /* Make container span full width like other inputs */
+    line-height: normal; /* Fix line-height issues that might occur */
+}
+
+.contact-form .form-group .phone-input {
+    width: 100% !important; /* Force input to take full width */
+    height: auto; /* Adjust height automatically */
+    padding: 12px 12px 12px 55px; /* Adjust padding to make space for flag/code */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form .form-group .phone-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+/* Style for the country selector button */
+.contact-form .form-group .phone-input-button {
+    border: 1px solid #ddd !important; /* Match border with input */
+    border-right: none !important; /* Remove right border for seamless look */
+    background-color: var(--light-color) !important; /* Match background */
+    border-radius: 5px 0 0 5px !important; /* Rounded only on left */
+}
+
+/* Hover state for the flag dropdown button */
+.contact-form .form-group .phone-input-button:hover {
+    background-color: #f2f2f2 !important; /* Slightly darker light red on hover */
+}
+
+/* Adjust dropdown list styling if needed */
+.special-label { /* This is a class from the library for the dropdown */
+    font-weight: 600 !important; /* Make sure labels look consistent */
+    color: var(--dark-color) !important;
+}
+
+/* Ensure dropdown items are readable */
+.country-list {
+    background-color: var(--white-color) !important;
+    color: var(--text-color) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+    border-radius: 5px !important;
+    padding: 5px 0 !important;
+}
+
+.country-list .country {
+    padding: 10px 15px !important;
+    transition: background-color 0.2s ease;
+}
+
+.country-list .country.highlight {
+    background-color: var(--primary-color) !important;
+    color: var(--white-color) !important;
+}
+
+.country-list .country.highlight .country-name,
+.country-list .country.highlight .dial-code {
+    color: var(--white-color) !important;
+}
+
+.country-list .country .country-name,
+.country-list .country .dial-code {
+    color: var(--text-color) !important;
+}
+
+
+/* Responsive adjustments for form alignment (already in your CSS, just double-check) */
+@media (min-width: 600px) {
+    .form-group {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form-group label {
+        width: 150px;
+        text-align: right;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    /* Ensure PhoneInput respects the flex layout */
+    .form-group .phone-input-container {
+        flex-grow: 1; /* Allow PhoneInput container to take remaining space */
+        width: auto; /* Reset width for flex-grow to work */
+    }
+}
