@@ -45,25 +45,25 @@ const DesignShowcase = () => {
       id: 1,
       title: 'Modern Apartment',
       description: 'A sleek, open-plan apartment with stunning city views.',
-      image: '/images/VR_Apartment.png' // Ensure this image exists in your public/images folder
+      image: '/images/apartment.png' // Ensure this image exists in your public/images folder
     },
     {
       id: 2,
       title: 'Machine',
       description: 'Designed with green principles and natural materials.',
-      image: '/images/Machine in VR (2).png' // Ensure this image exists in your public/images folder
+      image: '/images/machine.png' // Ensure this image exists in your public/images folder
     },
     {
       id: 3,
       title: 'Hospital Research',
       description: 'Innovative layout for enhanced productivity and collaboration.',
-      image: '/images/Heart in VR.png' // Ensure this image exists in your public/images folder
+      image: '/images/heart.png' // Ensure this image exists in your public/images folder
     },
     {
       id: 4,
       title: 'Education',
       description: 'Expansive living with a private pool and breathtaking landscapes.',
-      image: '/images/Solar System.png' // Ensure this image exists in your public/images folder
+      image: '/images/solarsystem.png' // Ensure this image exists in your public/images folder
     },
   ];
 
